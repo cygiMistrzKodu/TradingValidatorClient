@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+<meta charset="UTF-8">
+<title>Insert transaction here</title>
+
+<link th:href="@{webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
+</head>
+<body>
+
+	<div>
+
+		<form action="#" th:action="@{/homePage}" th:object="${transactions}"
+			method="post">
+
+			<div class="form-group">
+
+				<label for="inputTransaction" style="margin-top: 10px;">Input Transaction:</label>
+				<textarea class="form-control" rows="5" id="inputTransaction"
+					th:field="*{content}"></textarea>
+
+			</div>
+			<div style="margin-top: 10px;  margin-bottom: 10px;">
+				<button type="submit" name="sendTransactions"
+					class="btn btn-primary">Process Transactions</button>
+			</div>
+
+		</form>
+
+		<div th:object="${transactionsResponse}" class="form-group" >
+
+			<label for="validationResult">Validation Result:</label>
+			<textarea class="form-control" rows="5" id="validationResult"
+				th:field="*{respone}" readonly></textarea>
+
+		</div>
+
+
+	</div>
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script th:src="@{webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
+</body>
+</html>
